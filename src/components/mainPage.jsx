@@ -13,52 +13,105 @@ const MainPage = () => {
     <React.Fragment>
       <ToastContainer theme="colored" />
 
+
+      <div class="row">
       <Grid
-        style={{ padding: "30vh" }}
-        container
-        direction="row"
+        style={{ padding: "10vh" }}
+        // container
+        // direction="row"
         justifyContent="center"
         alignItems="center"
         spacing={2}
       >
-        <Grid item xs={3}>
+          <div className="column">
+          <Grid item xs={3}>
           <Container
             maxWidth="sm"
             className="Cube-styles"
-            style={{ backgroundColor: "#fff" }}
+            style={{ backgroundColor: "#dc60fb" }}
           >
-            0
-          </Container>
+           <div className="circular--portrait" ></div>
+    {/* <p>Some text..</p> */}
+    <button
+    className="button button1"
+        onClick={() => {
+          history.push("/bmi");
+        }}
+      >
+        Get your BMI Index Value
+      </button>
+
+        </Container>
         </Grid>
-        <Grid item xs={3}>
+  </div>
+  
+  <div className="column">
+          <Grid item xs={3}>
           <Container
             maxWidth="sm"
             className="Cube-styles"
-            style={{ backgroundColor: "#fff" }}
+            style={{ backgroundColor: "#8cfb60" }}
           >
-            1
+           <div className="circular--portrait2" ></div>
+    {/* <p>Some text..</p> */}
+    <button
+    className="button button2"
+        onClick={() => {
+          history.push("/wi");
+        }}
+      >
+        know your water intake level
+      </button>
           </Container>
         </Grid>
-        <Grid item xs={3}>
+  </div>
+  
+  <div className="column">
+          <Grid item xs={3}>
           <Container
             maxWidth="sm"
             className="Cube-styles"
-            style={{ backgroundColor: "#fff" }}
+            style={{ backgroundColor: "#60d9fb" }}
           >
-            2
+              <div className="circular--portrait3" ></div>
+    {/* <p>Some text..</p> */}
+    <button
+    className="button button3"
+        onClick={() => {
+          history.push("/idw");
+        }}
+      >
+        get your ideal weight
+      </button>
           </Container>
         </Grid>
-        <Grid item xs={3}>
+  </div>
+  
+  <div className="column">
+          <Grid item xs={3}>
           <Container
             maxWidth="sm"
             className="Cube-styles"
-            style={{ backgroundColor: "#fff" }}
+            style={{ backgroundColor: "#fbeb60" }}
           >
-            3
+              <div className="circular--portrait4" ></div>
+    {/* <p>Some text..</p> */}
+    <button
+    className="button button4"
+        onClick={() => {
+          history.push("/idw");
+        }}
+      >
+        get your ideal weight
+      </button>
           </Container>
         </Grid>
-      </Grid>
-      {/* <button
+  </div>
+
+        </Grid>
+
+</div>
+       {/* <button
         onClick={() => {
           history.push("/bmi");
         }}
