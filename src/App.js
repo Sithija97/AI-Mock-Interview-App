@@ -5,6 +5,7 @@ import BmiCalculator from "./components/bmiCalculator";
 import MainPage from "./components/mainPage";
 import WiCalculator from "./components/wiCalculator";
 import IdwCalculator from "./components/idwCalculator";
+import HomePage from "./components/homePage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
             <Route path="/bmi" component={BmiCalculator} />
             <Route path="/wi" component={WiCalculator} />
             <Route path="/idw" component={IdwCalculator} />
-            <Route path="/" component={MainPage} />
+            <Route path="/" component={HomePage} />
           </Switch>
         </header>
       </div>
