@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { RootState, useAppSelector } from "../store";
 import { Header } from "../components";
-import { AUTH } from "../router";
+import { LOGIN } from "../router";
 
 type IProps = {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ export const PrivateRoute = ({ children }: IProps) => {
   const { user } = useAppSelector((state: RootState) => state.auth);
 
   if (!user) {
-    return <Navigate to={AUTH} />;
+    return <Navigate to={LOGIN} />;
   }
 
   return children;
