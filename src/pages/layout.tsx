@@ -20,7 +20,7 @@ export const Layout = () => {
   return (
     <PrivateRoute>
       <Header />
-      <div className="flex items-center justify-center h-layout bg-gray-50">
+      <div className="p-1">
         <Outlet />
       </div>
     </PrivateRoute>

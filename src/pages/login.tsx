@@ -1,14 +1,18 @@
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../store";
+import { signInWithGoogle } from "../store/features/auth";
+import { HOME } from "../router";
 
 export const Login = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const handleSignInWithGoogle = async () => {
-    try {
-      const provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      console.log(result.user);
-    } catch (error) {
-      console.log(error);
+    const response = await dispatch(signInWithGoogle());
+
+    console.log(response);
+    if (response.meta.requestStatus === "fulfilled") {
+      navigate(HOME);
     }
   };
   return (
