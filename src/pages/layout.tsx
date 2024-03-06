@@ -20,7 +20,7 @@ export const Layout = () => {
   return (
     <PrivateRoute>
       <Header />
-      <div className="p-1">
+      <div className="px-2">
         <Outlet />
       </div>
     </PrivateRoute>
