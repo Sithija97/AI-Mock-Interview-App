@@ -2,6 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { RootState, useAppSelector } from "../store";
 import { Header } from "../components";
 import { LOGIN } from "../router";
+import { cn } from "src/lib/utils";
 
 type IProps = {
   children: React.ReactNode;
@@ -17,12 +18,20 @@ export const PrivateRoute = ({ children }: IProps) => {
   return children;
 };
 export const Layout = () => {
+  console.log(import.meta.env.VITE_DEV_ENV);
   return (
-    <PrivateRoute>
-      <Header />
-      <div className="px-2">
-        <Outlet />
-      </div>
-    </PrivateRoute>
+    <section
+      className={cn(
+        "min-h-screen w-full bg-white text-black",
+        import.meta.env.VITE_DEV_ENV === "development" ? "debug-screens" : ""
+      )}
+    >
+      <PrivateRoute>
+        <Header />
+        <div className="px-2">
+          <Outlet />
+        </div>
+      </PrivateRoute>
+    </section>
   );
 };
