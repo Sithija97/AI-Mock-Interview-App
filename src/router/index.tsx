@@ -1,5 +1,5 @@
+import { Home, Layout, Login, Register } from "pages";
 import { createBrowserRouter } from "react-router-dom";
-import { Home, Layout, Login, Register } from "../pages";
 
 export const ROOT = "/";
 export const LOGIN = "/login";

@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { RootState, useAppSelector } from "../store";
-import { Header } from "../components";
 import { LOGIN } from "../router";
-import { cn } from "src/lib/utils";
+import { Header } from "components";
+import { cn } from "lib/utils";
 
 type IProps = {
   children: React.ReactNode;
