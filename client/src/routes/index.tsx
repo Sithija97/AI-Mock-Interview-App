@@ -13,12 +13,12 @@ import {
 } from "../pages";
 
 export const router = createBrowserRouter([
+  { path: "/sign-in/*", element: <SignInPage /> },
+  { path: "/sign-up/*", element: <SignUpPage /> },
   {
     element: <RootLayout />,
     children: [
       { path: "/", element: <RootPage /> },
-      { path: "/sign-in/*", element: <SignInPage /> },
-      { path: "/sign-up/*", element: <SignUpPage /> },
       {
         element: <DashboardLayout />,
         path: "dashboard",
