@@ -1,9 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// Import the layouts
 import { DashboardLayout, RootLayout } from "../layouts";
 
-// Import the components
 import {
   DashboardPage,
   InvoicesPage,

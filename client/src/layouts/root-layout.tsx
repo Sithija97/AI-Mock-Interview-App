@@ -28,7 +28,13 @@ export const RootLayout = () => {
             <div className="md:col-span-2">
               <Outlet />
             </div>
-            <div className="p-5 flex justify-center">Side Section</div>
+            <div className="p-5 flex justify-center">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/004/759/797/non_2x/cute-panda-working-in-front-of-laptop-vector.jpg"
+                alt="panda-side-section"
+                className="rounded-xl"
+              />
+            </div>
           </div>
         </div>
       </>
