@@ -77,4 +77,6 @@
 
 .cl-internal-phfxlr {
   margin: auto;
+  height: 100vh;
+  padding-top: 10%;
 }

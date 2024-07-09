@@ -10,7 +10,13 @@ function App() {
       publishableKey={PUBLISHABLE_KEY}
       signInForceRedirectUrl="/dashboard"
     >
-      <RouterProvider router={router} />
+      <section
+        className={`min-h-screen bg-white text-black ${
+          import.meta.env.VITE_DEV_ENV === "development" ? "debug-screens" : ""
+        }`}
+      >
+        <RouterProvider router={router} />
+      </section>
     </ClerkProvider>
   );
 }
