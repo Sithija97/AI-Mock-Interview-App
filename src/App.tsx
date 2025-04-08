@@ -1,13 +1,14 @@
 import "./App.css";
-import { Button } from "./atoms/button";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center min-h-svh">
-        <Button>Click me</Button>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        {/* public routes */}
+        {/* protected routes */}
+      </Routes>
+    </Router>
   );
 }
 
