@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { AuthenticationLayout, PublicLayout } from "@/templates";
-import { HomePage, SignIn, SignUp } from "@/pages";
+import { HomePage, SignInPage, SignUpPage } from "@/pages";
 import "./App.css";
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
 
         {/* authentication layout */}
         <Route element={<AuthenticationLayout />}>
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin/*" element={<SignInPage />} />
+          <Route path="/signup/*" element={<SignUpPage />} />
         </Route>
 
         {/* protected routes */}
