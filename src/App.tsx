@@ -1,5 +1,10 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { AuthenticationLayout, PublicLayout } from "@/templates";
+import {
+  AuthenticationLayout,
+  MainLayout,
+  ProtectedLayout,
+  PublicLayout,
+} from "@/templates";
 import { HomePage, SignInPage, SignUpPage } from "@/pages";
 import "./App.css";
 
@@ -19,6 +24,13 @@ function App() {
         </Route>
 
         {/* protected routes */}
+        <Route
+          element={
+            <ProtectedLayout>
+              <MainLayout />
+            </ProtectedLayout>
+          }
+        ></Route>
       </Routes>
     </Router>
   );
