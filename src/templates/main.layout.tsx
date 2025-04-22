@@ -1,6 +1,6 @@
 import { Footer, Header } from "@/molecules";
 import { Outlet } from "react-router-dom";
-import { Container } from "./container";
+import { Container } from "../organisms/container";
 
 export const MainLayout = () => {
   return (

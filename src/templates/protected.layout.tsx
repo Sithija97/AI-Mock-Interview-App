@@ -9,6 +9,7 @@ type IProps = {
 
 export const ProtectedLayout = ({ children }: IProps) => {
   const { isLoaded, isSignedIn } = useAuth();
+  console.log(isLoaded, isSignedIn);
 
   if (!isLoaded) {
     return <LoaderPage />;
@@ -17,5 +18,10 @@ export const ProtectedLayout = ({ children }: IProps) => {
   if (!isSignedIn) {
     return <Navigate to="/signin" replace />;
   }
-  return children;
+  return (
+    <>
+      <p>protected</p>
+      {children}
+    </>
+  );
 };

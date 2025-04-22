@@ -6,6 +6,7 @@ export const PublicLayout = () => {
     <div className="w-full">
       {/* handler to store the user data */}
       <Header />
+      <p>public</p>
       <Outlet />
       <Footer />
     </div>
