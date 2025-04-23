@@ -17,7 +17,7 @@ export const Header = () => {
           {/* logo section */}
           <LogoContainer />
           {/* navigation section */}
-          <nav className={cn("hidden md:flex items-center gap-3")}>
+          <nav className={cn("hidden md:flex items-center gap-4")}>
             <NavigationRoutes />
             {userId && (
               <NavLink
