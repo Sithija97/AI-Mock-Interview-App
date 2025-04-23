@@ -6,17 +6,40 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/atoms";
+import { cn } from "@/lib/utils";
+import { NavigationRoutes } from "@/molecules";
+import { useAuth } from "@clerk/clerk-react";
+import { Menu } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export const ToggleContainer = () => {
+  const { userId } = useAuth();
+
   return (
     <Sheet>
-      <SheetTrigger>Open</SheetTrigger>
+      <SheetTrigger className="block md:hidden">
+        <Menu />
+      </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
+          <SheetTitle />
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            <nav className={cn("flex flex-col items-start gap-8")}>
+              <NavigationRoutes isMobile />
+              {userId && (
+                <NavLink
+                  to={"/generate"}
+                  className={({ isActive }) =>
+                    cn(
+                      "text-base text-neutral-600",
+                      isActive && "text-neutral-900 font-semibold"
+                    )
+                  }
+                >
+                  Take An Interview
+                </NavLink>
+              )}
+            </nav>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
