@@ -18,10 +18,5 @@ export const ProtectedLayout = ({ children }: IProps) => {
   if (!isSignedIn) {
     return <Navigate to="/signin" replace />;
   }
-  return (
-    <>
-      <p>protected</p>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };

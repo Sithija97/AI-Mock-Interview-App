@@ -5,8 +5,9 @@ import {
   ProtectedLayout,
   PublicLayout,
 } from "@/templates";
-import { HomePage, SignInPage, SignUpPage } from "@/pages";
+import { Generate, HomePage, SignInPage, SignUpPage } from "@/pages";
 import "./App.css";
+import { Dashboard } from "./templates/dashboard";
 
 function App() {
   return (
@@ -30,7 +31,12 @@ function App() {
               <MainLayout />
             </ProtectedLayout>
           }
-        ></Route>
+        >
+          {/* protected routes */}
+          <Route path="/generate" element={<Generate />}>
+            <Route index element={<Dashboard />} />
+          </Route>
+        </Route>
       </Routes>
     </Router>
   );
