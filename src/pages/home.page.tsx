@@ -57,7 +57,8 @@ export const HomePage = () => {
         {/* image section */}
         <div className="w-full rounded-xl relative">
           <img
-            src="https://interviewly.ai/_next/static/media/hero-video-interview.36f3b04b.svg"
+            // src="https://interviewly.ai/_next/static/media/hero-video-interview.36f3b04b.svg"
+            src="https://media.licdn.com/dms/image/v2/D4D08AQEAxSVNonZ6rg/croft-frontend-shrinkToFit1024/croft-frontend-shrinkToFit1024/0/1730838444716?e=2147483647&v=beta&t=C2ULy5_KAlfQgKwxdGwN54M6aMi2aDek-nNmxlKjuK0"
             alt=""
             className="w-3xl h-full object-cover m-auto"
           />
