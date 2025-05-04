@@ -5,9 +5,15 @@ import {
   ProtectedLayout,
   PublicLayout,
 } from "@/templates";
-import { Generate, HomePage, SignInPage, SignUpPage } from "@/pages";
+import {
+  CreateEditPage,
+  Dashboard,
+  Generate,
+  HomePage,
+  SignInPage,
+  SignUpPage,
+} from "@/pages";
 import "./App.css";
-import { Dashboard } from "./templates/dashboard";
 
 function App() {
   return (
@@ -35,6 +41,7 @@ function App() {
           {/* protected routes */}
           <Route path="/generate" element={<Generate />}>
             <Route index element={<Dashboard />} />
+            <Route path=":interviewId" element={<CreateEditPage />} />
           </Route>
         </Route>
       </Routes>
