@@ -21,6 +21,15 @@ import {
 } from "@/atoms/form";
 import { Input } from "@/atoms/input";
 import { Textarea } from "@/atoms/textarea";
+import { main } from "@/scripts";
+import { db } from "@/config/firebase.config";
+import {
+  updateDoc,
+  doc,
+  serverTimestamp,
+  collection,
+  addDoc,
+} from "firebase/firestore";
 
 type IProps = {
   initialData: Interview | null;
@@ -62,9 +71,63 @@ export const FormMockInterview = ({ initialData }: IProps) => {
     ? { title: "Updated..!", description: "Changes saved successfully..." }
     : { title: "Created..!", description: "New Mock Interview created..." };
 
+  const generateAiResponse = async (data: FormData) => {
+    const prompt = `
+        As an experienced prompt engineer, generate a JSON array containing 5 technical interview questions along with detailed answers based on the following job information. Each object in the array should have the fields "question" and "answer", formatted as follows:
+
+        [
+          { "question": "<Question text>", "answer": "<Answer text>" },
+          ...
+        ]
+
+        Job Information:
+        - Job Position: ${data?.position}
+        - Job Description: ${data?.description}
+        - Years of Experience Required: ${data?.experience}
+        - Tech Stacks: ${data?.techStack}
+
+        The questions should assess skills in ${data?.techStack} development and best practices, problem-solving, and experience handling complex requirements. Please format the output strictly as an array of JSON objects without any additional labels, code blocks, or explanations. Return only the JSON array with questions and answers.
+        `;
+
+    const aiResult = await main(prompt);
+    console.log(aiResult);
+    // const cleanedResponse = cleanAiResponse(aiResult.response.text());
+
+    // return cleanedResponse;
+  };
+
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
+      console.log(data);
+
+      if (initialData) {
+        console.log("iniitial Data");
+        // update
+        if (isValid) {
+          const aiResult = await generateAiResponse(data);
+          console.log(aiResult);
+
+          await updateDoc(doc(db, "interviews", initialData?.id), {
+            questions: aiResult,
+            ...data,
+            updatedAt: serverTimestamp(),
+          }).catch((error) => console.log(error));
+        }
+      } else {
+        // create a new mock interview
+        if (isValid) {
+          const aiResult = await generateAiResponse(data);
+          console.log(aiResult);
+
+          await addDoc(collection(db, "interviews"), {
+            ...data,
+            userId,
+            questions: aiResult,
+            createdAt: serverTimestamp(),
+          });
+        }
+      }
     } catch (error) {
       console.log(error);
       toast.error("Error..", {
@@ -217,7 +280,7 @@ export const FormMockInterview = ({ initialData }: IProps) => {
               Reset
             </Button>
             <Button
-              type="reset"
+              type="submit"
               size={"sm"}
               disabled={isSubmitting || loading || !isValid}
             >

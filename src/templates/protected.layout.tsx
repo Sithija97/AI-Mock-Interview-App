@@ -9,7 +9,6 @@ type IProps = {
 
 export const ProtectedLayout = ({ children }: IProps) => {
   const { isLoaded, isSignedIn } = useAuth();
-  console.log(isLoaded, isSignedIn);
 
   if (!isLoaded) {
     return <LoaderPage />;
